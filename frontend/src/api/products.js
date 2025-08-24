@@ -1,7 +1,7 @@
 // src/api/products.js
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/products"; // adjust if backend runs elsewhere
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/products"; // adjust if backend runs elsewhere
 
 export const getProducts = async () => {
   return await axios.get(API_URL);
