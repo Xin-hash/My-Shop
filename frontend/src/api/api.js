@@ -1,7 +1,24 @@
+// src/api/products.js
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost:5000/api", // your backend URL
-});
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/products"; // adjust if backend runs elsewhere
 
-export default api;
+export const getProducts = async () => {
+  return await axios.get(API_URL);
+};
+
+export const getProductById = async (id) => {
+  return await axios.get(`${API_URL}/${id}`);
+};
+
+export const createProduct = async (productData) => {
+  return await axios.post(API_URL, productData);
+};
+
+export const updateProduct = async (id, productData) => {
+  return await axios.put(`${API_URL}/${id}`, productData);
+};
+
+export const deleteProduct = async (id) => {
+  return await axios.delete(`${API_URL}/${id}`);
+};
