@@ -1,9 +1,7 @@
 // src/api/products.js
 import axios from "axios";
 
-const API_URL = "https://my-shop-5e2v.onrender.com/api/products"; // adjust if backend runs elsewhere
-
-console.log("API URL:", API_URL); // Debugging line to check the URL
+const API_URL = import.meta.env.REACT_APP_API_URL || "http://localhost:5000/api/products"; // adjust if backend runs elsewhere
 
 export const getProducts = async () => {
   return await axios.get(API_URL);
